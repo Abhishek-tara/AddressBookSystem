@@ -19,7 +19,7 @@ namespace AddressBookSystem
         public long PhoneNumber;
         public string Email;
 
-        public void  Create(string fname, string lname, string address, string city, int pincode, string state, long phone , string email)
+        public CreateContact(string fname, string lname, string address, string city, int pincode, string state, long phone , string email)
         {
             this.FirstName = fname;
             this.LastName = lname;
