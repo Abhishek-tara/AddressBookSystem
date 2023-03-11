@@ -11,6 +11,8 @@ namespace AddressBookSystem
         //private List<Contact> contacts = new List<Contact>();
         private Dictionary<string, Contact> contacts = new Dictionary<string, Contact>();
         private Dictionary<string, ContactManager> addressBookDictionary = new Dictionary<string, ContactManager>();
+        private Dictionary<Contact, string> cityDictionary = new Dictionary<Contact, string>();
+        private Dictionary<Contact, string> stateDictionary = new Dictionary<Contact, string>();
 
 
         public void AddContact(string firstName, string lastName, string address, string city, string state, string email, string zip, string phoneNumber, string bookName)
@@ -173,6 +175,26 @@ namespace AddressBookSystem
                 foreach (Contact contact in contactList.FindAll(c => c.State.Equals(state)).ToList())
                 {
                     Console.WriteLine(contact.ToString());
+                }
+            }
+        }
+        public void CreateCityDictionary()
+        {
+            foreach (ContactManager addressBookObj in addressBookDictionary.Values)
+            {
+                foreach (Contact contact in addressBookObj.contacts.Values)
+                {
+                    addressBookObj.cityDictionary.Add(contact, contact.City);
+                }
+            }
+        }
+        public void CreateStateDictionary()
+        {
+            foreach (ContactManager addressBookObj in addressBookDictionary.Values)
+            {
+                foreach (Contact contact in addressBookObj.contacts.Values)
+                {
+                    addressBookObj.stateDictionary.Add(contact, contact.State);
                 }
             }
         }
