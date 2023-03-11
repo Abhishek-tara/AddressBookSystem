@@ -27,7 +27,7 @@
             while (true)
             {
                 Console.WriteLine($"Working On {bookName} AddressBook\n");
-                Console.WriteLine("Choose An Option \n1.Add New Contact \n2.Edit Existing Contact \n3.Delete A Contact \n4.View A Contact \n5.View All Contacts \n6.Add New AddressBook \n7.Switch AddressBook \n8.Exit Application\n");
+                Console.WriteLine("Choose An Option \n1.Add New Contact \n2.Edit Existing Contact \n3.Delete A Contact \n4.View A Contact \n5.View All Contacts \n6.Add New AddressBook \n7.Switch AddressBook \n8.Search Contact by city/state \n9.Exit Application\n");
 
                 Console.Write("Enter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -107,6 +107,24 @@
                         }
                         break;
                     case 8:
+                        Console.WriteLine("Would You Like To \n1.Search by city \n2.Search by state");
+                        int opt = Convert.ToInt32(Console.ReadLine());
+                        switch (opt)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter name of city :");
+                                contactManager.SearchPersonByCity(Console.ReadLine());
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter name of state :");
+                                contactManager.SearchPersonByState(Console.ReadLine());
+                                break;
+                            default:
+                                Console.WriteLine("Invalid Input.Enter 1 or 2");
+                                break;
+                        }
+                        break;
+                    case 9:
                         Console.WriteLine("Exit");
                         break;
                     default:
