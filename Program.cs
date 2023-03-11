@@ -2,10 +2,11 @@
 {
     public class Program
     {
+        private static readonly string firstName;
+        private static readonly string lastName;
+
         public static void Main(String[] args)
         {
-            Console.WriteLine("Welcome to the Address Book System");
-
             ContactManager contactManager = new ContactManager();
             int choice, choice2;
             string bookName = "default";
@@ -34,7 +35,28 @@
                 switch (choice)
                 {
                     case 1:
-                        contactManager.AddContact(bookName);
+                        Console.WriteLine("Enter First Name :");
+                        string firstName = Console.ReadLine();
+                        Console.WriteLine("Enter Last Name :");
+                        string lastName = Console.ReadLine();
+                        Contact temp = new Contact(firstName, lastName, null, null, null, null, null, null);
+                        if (contactManager.CheckDuplicateEntry(temp, bookName))
+                        {
+                            break;
+                        }
+                        Console.WriteLine("Enter Address :");
+                        string address = Console.ReadLine();
+                        Console.WriteLine("Enter City :");
+                        string city = Console.ReadLine();
+                        Console.WriteLine("Enter State :");
+                        string state = Console.ReadLine();
+                        Console.WriteLine("Enter Email :");
+                        string email = Console.ReadLine();
+                        Console.WriteLine("Enter Zip :");
+                        string zip = Console.ReadLine();
+                        Console.WriteLine("Enter Phone Number :");
+                        string phoneNumber = Console.ReadLine();
+                        contactManager.AddContact(firstName, lastName, address, city, state, email, zip, phoneNumber, bookName);
                         break;
                     case 2:
                         string nameToEdit = Console.ReadLine();
@@ -86,7 +108,6 @@
                         break;
                     case 8:
                         Console.WriteLine("Exit");
-                        return;
                         break;
                     default:
                         Console.WriteLine("Invalid choice. Please try again.");
@@ -95,7 +116,6 @@
 
                 Console.WriteLine();
             }
-
         }
     }
 }

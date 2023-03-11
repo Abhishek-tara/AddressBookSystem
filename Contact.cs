@@ -37,6 +37,18 @@ namespace AddressBookSystem
             Console.WriteLine("Phone Number: " + PhoneNumber);
             Console.WriteLine("Email: " + Email);
         }
+        public override bool Equals(object obj)
+        {
+            Contact contact = (Contact)obj;
+            if (contact == null)
+                return false;
+            else
+                return FirstName.Equals(contact.FirstName) && LastName.Equals(contact.LastName);
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(FirstName, LastName);
+        }
 
 
     }
