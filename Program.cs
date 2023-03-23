@@ -165,6 +165,13 @@
                         json.WriteToFile(contactManager.addressBookDictionary);
                         json.ReadFromFile();
                         break;
+                    case 14:
+                        //retireve contacts from database
+                        Database db = new Database();
+                        Contact = contactManager.ViewContact(bookName);
+                        db.GetContactsFromDataBase(Contact);
+
+                        break;
                     case 0:
                         Console.WriteLine("Exit");
                         break;
