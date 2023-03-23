@@ -9,8 +9,8 @@ namespace AddressBookSystem
     public class ContactManager : IContacts
     {
         //private List<Contact> contacts = new List<Contact>();
-        private Dictionary<string, Contact> contacts = new Dictionary<string, Contact>();
-        private Dictionary<string, ContactManager> addressBookDictionary = new Dictionary<string, ContactManager>();
+        public Dictionary<string, Contact> contacts = new Dictionary<string, Contact>();
+        public Dictionary<string, ContactManager> addressBookDictionary = new Dictionary<string, ContactManager>();
         private Dictionary<Contact, string> cityDictionary = new Dictionary<Contact, string>();
         private Dictionary<Contact, string> stateDictionary = new Dictionary<Contact, string>();
 

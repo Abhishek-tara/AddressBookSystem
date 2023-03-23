@@ -155,6 +155,11 @@
                         fileIO.WriteToFile(contactManager.addressBookDictionary);
                         fileIO.ReadFromFile();
                         break;
+                    case 12:
+                        CSVHandler handler = new CSVHandler();
+                        handler.WriteToFile(contactManager.addressBookDictionary);
+                        handler.ReadFromFile();
+                        break;
                     case 0:
                         Console.WriteLine("Exit");
                         break;
