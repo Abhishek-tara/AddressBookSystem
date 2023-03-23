@@ -160,6 +160,11 @@
                         handler.WriteToFile(contactManager.addressBookDictionary);
                         handler.ReadFromFile();
                         break;
+                    case 13:
+                        JSONOperation json = new JSONOperation();
+                        json.WriteToFile(contactManager.addressBookDictionary);
+                        json.ReadFromFile();
+                        break;
                     case 0:
                         Console.WriteLine("Exit");
                         break;
