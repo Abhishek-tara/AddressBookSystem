@@ -1,5 +1,6 @@
 ﻿namespace AddressBookSystem
 {
+
     public class Program
     {
         private static readonly string firstName;
@@ -27,7 +28,7 @@
             while (true)
             {
                 Console.WriteLine($"Working On {bookName} AddressBook\n");
-                Console.WriteLine("Choose An Option \n1.Add New Contact \n2.Edit Existing Contact \n3.Delete A Contact \n4.View A Contact \n5.View All Contacts \n6.Add New AddressBook \n7.Switch AddressBook \n8.Search Contact by city/state \n9.Count by City/State \n10.Sort Entries \n0.Exit Application\n");
+                Console.WriteLine("Choose An Option \n1.Add New Contact \n2.Edit Existing Contact \n3.Delete A Contact \n4.View A Contact \n5.View All Contacts \n6.Add New AddressBook \n7.Switch AddressBook \n8.Search Contact by city/state \n9.Count by City/State \n10.Sort Entries \n11.Read/Write AddressBook to text file \n0.Exit Application\n");
 
                 Console.Write("Enter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -149,6 +150,10 @@
                                 break;
                         }
                         break;
+                    case 11:
+                        FileOperation fileIO = new FileOperation();
+                        fileIO.WriteToFile(contactManager.addressBookDictionary);
+                        fileIO.ReadFromFile();
                         break;
                     case 0:
                         Console.WriteLine("Exit");
